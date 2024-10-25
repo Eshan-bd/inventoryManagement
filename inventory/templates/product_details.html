@@ -1,38 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ product.name }} - Product Details</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-        h1 {
-            color: #333;
-        }
-        .product-details {
-            border: 1px solid #ddd;
-            padding: 15px;
-            border-radius: 5px;
-        }
-        .product-details p {
-            margin: 5px 0;
-        }
-    </style>
-</head>
-<body>
+<!-- templates/product_detail.html -->
+{% extends 'base.html' %}
 
-<h1>{{ product.name }}</h1>
-<div class="product-details">
-    <p><strong>Category:</strong> {{ product.category.name }}</p>
-    <p><strong>Price:</strong> ${{ product.price }}</p>
-    <p><strong>Quantity:</strong> {{ product.quantity }}</p>
-    <p><strong>Description:</strong> {{ product.description }}</p>
-</div>
+{% block title %}{{ product.name }} Details{% endblock %}
 
-<a href="{% url 'product_list' %}">Back to Product List</a>
+{% block content %}
+    <div class="content-container">
+        <div class="product-detail">
+            <h2>{{ product.name }}</h2>
+            <p><strong>Category:</strong> {{ product.category.name }}</p>
+            <p><strong>Price:</strong> <span class="price">${{ product.price }}</span></p>
+            <p><strong>Quantity:</strong>
+                <span class="quantity {% if product.quantity < 10 %}low{% elif product.quantity < 50 %}medium{% else %}high{% endif %}">
+            {{ product.quantity }}
+        </span>
+            </p>
+            <p class="description"><strong>Description:</strong> {{ product.description }}</p>
+            <div class="add-button">
+                <a href="{% url 'product_list' %}">Back to Product List</a>
+            </div>
+        </div>
 
-</body>
-</html>
+    </div>
+{% endblock %}

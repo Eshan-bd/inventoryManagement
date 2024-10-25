@@ -24,7 +24,7 @@ def add_product(request):
     else:
         form = ProductForm()  # Display an empty form for GET requests
 
-    return render(request, 'product_edit.html', {'form': form})
+    return render(request, 'add_product.html', {'form': form})
 
 # views.py
 def add_category(request):
@@ -40,3 +40,13 @@ def add_category(request):
 def category_list(request):
     categories = Category.objects.all()
     return render(request, 'category_list.html', {'categories': categories})
+
+
+def product_list_by_category(request, id):
+    category = get_object_or_404(Category, id=category_id)
+    products = Product.objects.filter(category=category)
+
+    return render(request, 'product_list_by_cat.html', {
+        'category': category,
+        'products': products,
+    })

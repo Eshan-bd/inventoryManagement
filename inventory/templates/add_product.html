@@ -1,16 +1,16 @@
-<!-- templates/add_category.html -->
+<!-- templates/add_product.html -->
 {% extends 'base.html' %}
 
-{% block title %}Add Category{% endblock %}
+{% block title %}Add Product{% endblock %}
 
 {% block content %}
     <div class="content-container">
         <form method="post">
-            <h2>Add Category</h2>
+            <h2>Add Product</h2>
             {% csrf_token %}
             {{ form.as_p }}
             <div class="button-group">
-                <button class="add-button" type="submit">Add Category</button>
+                <button class="add-button" type="submit">Add Product</button>
                 <div class="add-button">
                     <a href="{% url 'product_list' %}">Cancel</a>
                 </div>
