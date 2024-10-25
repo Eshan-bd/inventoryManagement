@@ -50,3 +50,9 @@ def product_list_by_category(request, id):
         'category': category,
         'products': products,
     })
+
+
+def delete_product(request, product_id):
+    product = get_object_or_404(Product, id=product_id)
+    product.delete()
+    return redirect('product_list')
