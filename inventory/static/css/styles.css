@@ -326,3 +326,44 @@ footer p {
     grid-template-columns: 1fr;
     line-height: 1.6;
 }
+
+.login-container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+.login-container h2 {
+    text-align: center;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #007bff;
+    padding: 10px;
+}
+
+nav ul li a:hover {
+    background-color: #f1f1f1;
+    border-radius: 5px;
+}
+
+nav ul li a:active {
+    background-color: #007bff;
+    color: white;
+}

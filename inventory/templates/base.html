@@ -16,6 +16,11 @@
             <ul>
                 <li><a href="{% url 'product_list' %}">Products</a></li>
                 <li><a href="{% url 'category_list' %}">Categories</a></li>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                {% else %}
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                {% endif %}
             </ul>
         </nav>
     </div>
@@ -29,6 +34,6 @@
 <footer>
     <p>&copy; {{ current_year }} Inventory Management System</p>
 </footer>
+
 </body>
 </html>
-
